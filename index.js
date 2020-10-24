@@ -17,7 +17,7 @@
 
          if (message.member.voice.channel) {
              const connection = await message.member.voice.channel.join();
-             console.log("> Started Playing audio.mp3 Lalalala ")
+             console.log("> Started Playing audio.mp3 you had requesed ")
                  /* This line above is totally unnecessary. You should put it there for debug purpose 
                  What it'll do is, when someone uses the invoke keyword, it'll print this line on to "your computer's terminal"*/
 
@@ -34,24 +34,23 @@
          }
      }
      // If you need to make more keywords and sounds, uncomment this or copy and paste it exactly here as many times as you need
-     /*else if (message.content == 'invokeKeyword2') {  
+     else if (message.content == 'invokeKeyword2') {
 
-    if (message.member.voice.channel) {
-      const connection = await message.member.voice.channel.join();
-      console.log("Started Playing audio2.mp3")
-      const dispatcher = connection.play('./audio2.mp3');
-      dispatcher.on('finish', () => { 
-          console.log('Finished playing!'); 
-          dispatcher.destroy(); // end the stream
-          connection.disconnect();
-          }); 
-          
-    }
-     else {
-      message.reply('You need to join a voice channel first!');
-    }
-  }
-*/
+         if (message.member.voice.channel) {
+             const connection = await message.member.voice.channel.join();
+             console.log("Started Playing audio2.mp3")
+             const dispatcher = connection.play('./audio2.mp3');
+             dispatcher.on('finish', () => {
+                 console.log('Finished playing!');
+                 dispatcher.destroy(); // end the stream
+                 connection.disconnect();
+             });
+
+         } else {
+             message.reply('You need to join a voice channel first!');
+         }
+     } *
+     /
 
 
  });
